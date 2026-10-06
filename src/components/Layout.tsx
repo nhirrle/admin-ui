@@ -158,6 +158,8 @@ const menuGroups: MenuGroup[] = [
           { text: 'Read Site Config', path: '/site-config/read', method: 'GET' },
           { text: 'Read Aggregated Site Config', path: '/site-config/read-aggregated', method: 'GET' },
           { text: 'Update Site Config', path: '/site-config/update', method: 'POST' },
+          { text: 'Update Path Mappings', path: '/site-config/update-path-mappings', method: 'POST' },
+          { text: 'Update CDN Config', path: '/site-config/update-cdn', method: 'POST' },
           { text: 'Create Site Config', path: '/site-config/create', method: 'PUT' },
           { text: 'Delete Site Config', path: '/site-config/delete', method: 'DELETE' },
           { text: 'Read Robots.txt', path: '/site-config/read-robots-txt', method: 'GET' },

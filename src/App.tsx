@@ -19,6 +19,8 @@ import SiteConfigListConfig from './pages/SiteConfigListSites';
 import SiteConfigReadConfig from './pages/SiteConfigReadConfig';
 import SiteConfigReadAggregatedConfig from './pages/SiteConfigReadAggregatedConfig';
 import SiteConfigUpdateSiteConfig from './pages/SiteConfigUpdateConfig';
+import SiteConfigUpdatePublicConfig from './pages/SiteConfigUpdatePublicConfig';
+import SiteConfigUpdateCDNConfig from './pages/SiteConfigUpdateCDNConfig';
 import SiteConfigCreateConfig from './pages/SiteConfigCreateConfig';
 import SiteConfigDeleteConfig from './pages/SiteConfigDeleteConfig';
 import SiteConfigReadRobotsTxt from './pages/SiteConfigReadRobotsTxt';
@@ -87,6 +89,8 @@ const App: React.FC = () => {
                 <Route path="/site-config/read-aggregated" element={<SiteConfigReadAggregatedConfig />} />
                 <Route path="/site-config/create" element={<SiteConfigCreateConfig />} />
                 <Route path="/site-config/update" element={<SiteConfigUpdateSiteConfig />} />
+                <Route path="/site-config/update-path-mappings" element={<SiteConfigUpdatePublicConfig />} />
+                <Route path="/site-config/update-cdn" element={<SiteConfigUpdateCDNConfig />} />
                 <Route path="/site-config/delete" element={<SiteConfigDeleteConfig />} />
                 <Route path="/site-config/read-robots-txt" element={<SiteConfigReadRobotsTxt />} />
                 <Route path="/site-config/update-robots-txt" element={<SiteConfigUpdateRobotsTxt />} />
