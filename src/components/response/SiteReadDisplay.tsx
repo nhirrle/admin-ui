@@ -10,7 +10,6 @@ import DeleteIcon from '@mui/icons-material/Delete';
 import ContentCopyIcon from '@mui/icons-material/ContentCopy';
 import StatusCard from '../StatusCard';
 import ResponseLayout from './ResponseLayout';
-import { useResource } from '../../context/ResourceContext';
 import { RequestDetails } from '../../types';
 
 interface SiteReadDisplayProps {
@@ -25,21 +24,12 @@ const SiteReadDisplay: React.FC<SiteReadDisplayProps> = ({
   responseStatus,
 }) => {
   const navigate = useNavigate();
-  const { setSite } = useResource();
   const data = responseData ?? {};
 
   const handleEditConfig = () => navigate('/site-config/update');
   const handleDeleteConfig = () => navigate('/site-config/delete');
 
-  const handleCopyConfig = async () => {
-    try {
-      sessionStorage.setItem('copiedSiteConfig', JSON.stringify(responseData));
-      setSite('');
-      navigate('/site-config/create');
-    } catch (error) {
-      console.error('Error copying site config:', error);
-    }
-  };
+  const handleCopyConfig = () => navigate('/site-config/clone');
 
   const toolbar = (
     <Box sx={{ display: 'flex', gap: 1 }}>
@@ -49,7 +39,7 @@ const SiteReadDisplay: React.FC<SiteReadDisplayProps> = ({
       <Tooltip title="Delete Site Config">
         <IconButton onClick={handleDeleteConfig} size="small"><DeleteIcon /></IconButton>
       </Tooltip>
-      <Tooltip title="Copy Site Config">
+      <Tooltip title="Clone Site">
         <IconButton onClick={handleCopyConfig} size="small"><ContentCopyIcon /></IconButton>
       </Tooltip>
     </Box>

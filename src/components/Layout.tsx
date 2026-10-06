@@ -148,6 +148,7 @@ const menuGroups: MenuGroup[] = [
         subItems: [
           { text: 'Read Org Config', path: '/org-config/read', method: 'GET' },
           { text: 'List Users', path: '/org-config/users', method: 'GET' },
+          { text: 'Sites Overview & Compare', path: '/org-config/sites-overview', method: 'GET' },
         ]
       },
       {
@@ -161,6 +162,7 @@ const menuGroups: MenuGroup[] = [
           { text: 'Update Path Mappings', path: '/site-config/update-path-mappings', method: 'POST' },
           { text: 'Update CDN Config', path: '/site-config/update-cdn', method: 'POST' },
           { text: 'Create Site Config', path: '/site-config/create', method: 'PUT' },
+          { text: 'Clone Site', path: '/site-config/clone', method: 'PUT' },
           { text: 'Delete Site Config', path: '/site-config/delete', method: 'DELETE' },
           { text: 'Read Robots.txt', path: '/site-config/read-robots-txt', method: 'GET' },
           { text: 'Update Robots.txt', path: '/site-config/update-robots-txt', method: 'POST' },

@@ -17,8 +17,7 @@ import DeleteIcon from '@mui/icons-material/Delete';
 import ContentCopyIcon from '@mui/icons-material/ContentCopy';
 import ResponseLayout from './ResponseLayout';
 import { useResource } from '../../context/ResourceContext';
-import { apiCall } from '../../utils/api';
-import { RequestDetails, ADMIN_API_BASE } from '../../types';
+import { RequestDetails } from '../../types';
 
 interface Site {
   name: string;
@@ -36,7 +35,7 @@ const SiteListSitesDisplay: React.FC<SiteListSitesDisplayProps> = ({
   responseStatus,
 }) => {
   const navigate = useNavigate();
-  const { setSite, owner } = useResource();
+  const { setSite } = useResource();
 
   const handleViewConfig = (siteName: string) => {
     setSite(siteName);
@@ -53,25 +52,9 @@ const SiteListSitesDisplay: React.FC<SiteListSitesDisplayProps> = ({
     navigate('/site-config/delete');
   };
 
-  const handleCopyConfig = async (siteName: string) => {
-    try {
-      const details: RequestDetails = {
-        url: `${ADMIN_API_BASE}/config/${owner}/sites/${siteName}.json`,
-        method: 'GET',
-        headers: {},
-        queryParams: {},
-        body: null
-      };
-
-      const { responseData } = await apiCall(details);
-      if (responseData) {
-        sessionStorage.setItem('copiedSiteConfig', JSON.stringify(responseData));
-        setSite('');
-        navigate('/site-config/create');
-      }
-    } catch (error) {
-      console.error('Error copying site config:', error);
-    }
+  const handleCopyConfig = (siteName: string) => {
+    setSite(siteName);
+    navigate('/site-config/clone');
   };
 
   const sites = responseData?.sites || [];
@@ -111,7 +94,7 @@ const SiteListSitesDisplay: React.FC<SiteListSitesDisplayProps> = ({
                     <IconButton size="small" onClick={() => handleEditConfig(site.name)} title="Edit Site Config">
                       <EditIcon />
                     </IconButton>
-                    <IconButton size="small" onClick={() => handleCopyConfig(site.name)} title="Copy Site Config">
+                    <IconButton size="small" onClick={() => handleCopyConfig(site.name)} title="Clone Site">
                       <ContentCopyIcon />
                     </IconButton>
                   </TableCell>

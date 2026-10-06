@@ -15,6 +15,8 @@ import IndexReindex from './pages/IndexReindex';
 import IndexRemoveResource from './pages/IndexRemoveResource';
 import OrgConfigReadConfig from './pages/OrgConfigReadConfig';
 import OrgConfigListUsers from './pages/OrgConfigListUsers';
+import OrgSitesOverview from './pages/OrgSitesOverview';
+import SiteConfigCloneSite from './pages/SiteConfigCloneSite';
 import SiteConfigListConfig from './pages/SiteConfigListSites';
 import SiteConfigReadConfig from './pages/SiteConfigReadConfig';
 import SiteConfigReadAggregatedConfig from './pages/SiteConfigReadAggregatedConfig';
@@ -84,6 +86,8 @@ const App: React.FC = () => {
                 <Route path="/index/remove" element={<IndexRemoveResource />} />
                 <Route path="/org-config/read" element={<OrgConfigReadConfig />} />
                 <Route path="/org-config/users" element={<OrgConfigListUsers />} />
+                <Route path="/org-config/sites-overview" element={<OrgSitesOverview />} />
+                <Route path="/site-config/clone" element={<SiteConfigCloneSite />} />
                 <Route path="/site-config/list" element={<SiteConfigListConfig />} />
                 <Route path="/site-config/read" element={<SiteConfigReadConfig />} />
                 <Route path="/site-config/read-aggregated" element={<SiteConfigReadAggregatedConfig />} />

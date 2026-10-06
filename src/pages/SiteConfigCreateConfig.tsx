@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import {
   Box,
   Paper,
@@ -26,23 +26,6 @@ const SiteConfigCreateConfig: React.FC = () => {
   });
   const { status, responseData, error, loading, executeSubmit, reset, requestDetails } = useFormState();
   const { error: jsonError, handleError, clearError } = useErrorHandler();
-
-  // Check for copied config when component mounts
-  useEffect(() => {
-    const copiedConfig = sessionStorage.getItem('copiedSiteConfig');
-    if (copiedConfig) {
-      try {
-        const parsedConfig = JSON.parse(copiedConfig);
-        // Clear the name field to force user to enter a new one
-        parsedConfig.name = '';
-        setConfig(parsedConfig);
-        // Clear the copied config from storage
-        sessionStorage.removeItem('copiedSiteConfig');
-      } catch (error) {
-        handleError(error, 'Error parsing copied configuration');
-      }
-    }
-  }, []);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
