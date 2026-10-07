@@ -161,6 +161,7 @@ const menuGroups: MenuGroup[] = [
           { text: 'Update Site Config', path: '/site-config/update', method: 'POST' },
           { text: 'Update Path Mappings', path: '/site-config/update-path-mappings', method: 'POST' },
           { text: 'Update CDN Config', path: '/site-config/update-cdn', method: 'POST' },
+          { text: 'Content Fragment Overlay', path: '/site-config/content-fragment-overlay', method: 'POST' },
           { text: 'Create Site Config', path: '/site-config/create', method: 'PUT' },
           { text: 'Clone Site', path: '/site-config/clone', method: 'PUT' },
           { text: 'Delete Site Config', path: '/site-config/delete', method: 'DELETE' },

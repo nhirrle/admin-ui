@@ -102,7 +102,7 @@ const SiteConfigUpdatePublicConfig: React.FC = () => {
               label="Path Mapping Configuration"
               required
               placeholder="Enter public path configuration as JSON"
-              helperText="Configure paths.mappings, paths.includes, and paths.excludes."
+              helperText="Configure paths.mappings, paths.includes, and paths.excludes. Content Fragment model allow-lists can be set under xwalk.content-fragment-overlay."
             />
             <ApiUrlDisplay
               method="POST"
