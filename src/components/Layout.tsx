@@ -115,14 +115,19 @@ const menuGroups: MenuGroup[] = [
         subItems: [
           { text: 'Index Status', path: '/index/status', method: 'GET' },
           { text: 'Re-index Resource', path: '/index/reindex', method: 'POST' },
-          { text: 'Remove from Index', path: '/index/remove', method: 'DELETE' }
+          { text: 'Remove from Index', path: '/index/remove', method: 'DELETE' },
+          { text: 'Read Indexing Config', path: '/site-config/read-index', method: 'GET' },
+          { text: 'Update Indexing Config', path: '/site-config/update-index', method: 'POST' }
         ]
       },
       {
         text: 'Sitemap',
         icon: <MapIcon />,
         subItems: [
-          { text: 'Generate Sitemap', path: '/sitemap/generate', method: 'POST' }
+          { text: 'Generate Sitemap', path: '/sitemap/generate', method: 'POST' },
+          { text: 'Read Sitemap Config', path: '/site-config/read-sitemap', method: 'GET' },
+          { text: 'Update Sitemap Config', path: '/site-config/update-sitemap', method: 'POST' },
+          { text: 'Delete Sitemap Config', path: '/site-config/delete-sitemap', method: 'DELETE' }
         ]
       },
       {
@@ -161,6 +166,7 @@ const menuGroups: MenuGroup[] = [
           { text: 'Update Site Config', path: '/site-config/update', method: 'POST' },
           { text: 'Update Path Mappings', path: '/site-config/update-path-mappings', method: 'POST' },
           { text: 'Update CDN Config', path: '/site-config/update-cdn', method: 'POST' },
+          { text: 'Update Custom Headers', path: '/site-config/update-headers', method: 'POST' },
           { text: 'Content Fragment Overlay', path: '/site-config/content-fragment-overlay', method: 'POST' },
           { text: 'Create Site Config', path: '/site-config/create', method: 'PUT' },
           { text: 'Clone Site', path: '/site-config/clone', method: 'PUT' },

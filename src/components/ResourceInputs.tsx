@@ -12,6 +12,7 @@ interface ResourceInputsProps {
   readOnlyRef?: boolean;
   readOnlyPath?: boolean;
   hidePath?: boolean;
+  pathHelperText?: string;
 }
 
 const ResourceInputs: React.FC<ResourceInputsProps> = ({
@@ -24,6 +25,7 @@ const ResourceInputs: React.FC<ResourceInputsProps> = ({
   readOnlyRef = false,
   readOnlyPath = false,
   hidePath = false,
+  pathHelperText = 'Relative path of the resource',
 }) => {
   const {
     owner, setOwner,
@@ -127,7 +129,7 @@ const ResourceInputs: React.FC<ResourceInputsProps> = ({
                 required
                 onChange={(e) => setPath(e.target.value)}
                 placeholder="Resource path"
-                helperText="Relative path of the resource"
+                helperText={pathHelperText}
                 InputProps={{ ...params.InputProps, readOnly: readOnlyPath }}
               />
             )}

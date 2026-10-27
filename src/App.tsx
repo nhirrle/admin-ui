@@ -23,11 +23,17 @@ import SiteConfigReadAggregatedConfig from './pages/SiteConfigReadAggregatedConf
 import SiteConfigUpdateSiteConfig from './pages/SiteConfigUpdateConfig';
 import SiteConfigUpdatePublicConfig from './pages/SiteConfigUpdatePublicConfig';
 import SiteConfigUpdateCDNConfig from './pages/SiteConfigUpdateCDNConfig';
+import SiteConfigUpdateHeaders from './pages/SiteConfigUpdateHeaders';
 import SiteConfigContentFragmentOverlay from './pages/SiteConfigContentFragmentOverlay';
 import SiteConfigCreateConfig from './pages/SiteConfigCreateConfig';
 import SiteConfigDeleteConfig from './pages/SiteConfigDeleteConfig';
 import SiteConfigReadRobotsTxt from './pages/SiteConfigReadRobotsTxt';
 import SiteConfigUpdateRobotsTxt from './pages/SiteConfigUpdateRobotsTxt';
+import SiteConfigReadSitemapConfig from './pages/SiteConfigReadSitemapConfig';
+import SiteConfigUpdateSitemapConfig from './pages/SiteConfigUpdateSitemapConfig';
+import SiteConfigDeleteSitemapConfig from './pages/SiteConfigDeleteSitemapConfig';
+import SiteConfigReadIndexConfig from './pages/SiteConfigReadIndexConfig';
+import SiteConfigUpdateIndexConfig from './pages/SiteConfigUpdateIndexConfig';
 import PreviewStatus from './pages/PreviewStatus';
 import PreviewUpdate from './pages/PreviewUpdate';
 import PreviewDelete from './pages/PreviewDelete';
@@ -96,10 +102,16 @@ const App: React.FC = () => {
                 <Route path="/site-config/update" element={<SiteConfigUpdateSiteConfig />} />
                 <Route path="/site-config/update-path-mappings" element={<SiteConfigUpdatePublicConfig />} />
                 <Route path="/site-config/update-cdn" element={<SiteConfigUpdateCDNConfig />} />
+                <Route path="/site-config/update-headers" element={<SiteConfigUpdateHeaders />} />
                 <Route path="/site-config/content-fragment-overlay" element={<SiteConfigContentFragmentOverlay />} />
                 <Route path="/site-config/delete" element={<SiteConfigDeleteConfig />} />
                 <Route path="/site-config/read-robots-txt" element={<SiteConfigReadRobotsTxt />} />
                 <Route path="/site-config/update-robots-txt" element={<SiteConfigUpdateRobotsTxt />} />
+                <Route path="/site-config/read-sitemap" element={<SiteConfigReadSitemapConfig />} />
+                <Route path="/site-config/update-sitemap" element={<SiteConfigUpdateSitemapConfig />} />
+                <Route path="/site-config/delete-sitemap" element={<SiteConfigDeleteSitemapConfig />} />
+                <Route path="/site-config/read-index" element={<SiteConfigReadIndexConfig />} />
+                <Route path="/site-config/update-index" element={<SiteConfigUpdateIndexConfig />} />
                 <Route path="/site-config/list-api-keys" element={<SiteConfigListAPIKeys />} />
                 <Route path="/site-config/create-api-key" element={<SiteConfigCreateAPIKey />} />
                 <Route path="/site-config/delete-api-key" element={<SiteConfigDeleteAPIKey />} />

@@ -56,7 +56,7 @@ export async function apiCall(
 
     // Handle text/plain responses
     const contentType = response.headers.get('content-type');
-    if (contentType?.includes('text/plain')) {
+    if (contentType?.includes('text/plain') || contentType?.includes('yaml')) {
       const text = await response.text();
       return { status: response.status, responseData: text };
     }

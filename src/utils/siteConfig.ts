@@ -1,5 +1,38 @@
+import yaml from 'js-yaml';
 import { apiCall } from './api';
 import { ADMIN_API_BASE, RequestDetails } from '../types';
+
+export type YamlConfigFile = 'sitemap.yaml' | 'query.yaml';
+
+export const yamlConfigUrl = (owner: string, site: string, file: YamlConfigFile): string =>
+  `${ADMIN_API_BASE}/config/${owner}/sites/${site}/content/${file}`;
+
+// Returns the parse error message, or null if the text is valid YAML.
+export const validateYaml = (text: string): string | null => {
+  try {
+    yaml.load(text);
+    return null;
+  } catch (e) {
+    return e instanceof Error ? e.message : String(e);
+  }
+};
+
+// Collects every `destination` value of a sitemap.yaml, including nested language entries.
+export const collectSitemapDestinations = (text: string): string[] => {
+  const found = new Set<string>();
+  const walk = (value: unknown) => {
+    if (Array.isArray(value)) {
+      value.forEach(walk);
+    } else if (value && typeof value === 'object') {
+      Object.entries(value).forEach(([key, v]) => {
+        if (key === 'destination' && typeof v === 'string' && v.trim()) found.add(v.trim());
+        else walk(v);
+      });
+    }
+  };
+  walk(yaml.load(text));
+  return Array.from(found);
+};
 
 const get = (url: string, headers: Record<string, string> = {}): RequestDetails => ({
   url,
